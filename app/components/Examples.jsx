@@ -1,7 +1,10 @@
 const React = require('react');
 
 const Examples = props => (
-  <h3>Examples Component</h3>
+  <div>
+    <h3>Examples</h3>
+    <p>Welcome to Examples page</p>
+  </div>
 );
 
 module.exports = Examples;
