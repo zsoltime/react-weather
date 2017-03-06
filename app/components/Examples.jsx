@@ -6,7 +6,7 @@ const Examples = props => (
     <p>Here are a few example locations to try out:</p>
     <ul>
       <li>
-        <Link to="/?location=Szulnok">Szolnok, HU</Link>
+        <Link to="/?location=Szolnok">Szolnok, HU</Link>
       </li>
       <li>
         <Link to="/?location=London">London, UK</Link>
