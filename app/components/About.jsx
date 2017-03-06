@@ -4,8 +4,9 @@ const About = props => (
   <div>
     <h2 className="text-center">About</h2>
     <p>This is a simple weather application you can build if you follow Andrew
-      Mead's <em>The Complete React Web App Developer Course</em> on
-      <a href="https://www.udemy.com/the-complete-react-web-app-developer-course/" target="_blank" rel="noreferrer noopener">Udemy</a>.</p>
+      Mead's <em>The Complete React Web App Developer Course</em> on <a
+      href="https://www.udemy.com/the-complete-react-web-app-developer-course/"
+      target="_blank" rel="noreferrer noopener">Udemy</a>.</p>
       <p>Here are some of the tools we used:</p>
       <ul>
         <li>
