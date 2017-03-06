@@ -1,5 +1,9 @@
 const webpack = require('webpack');
 
+const babelSettings = {
+  presets: ['react', 'es2015', 'stage-0'],
+};
+
 module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
@@ -11,8 +15,8 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery',
+      $: 'jquery',
+      jQuery: 'jquery',
     }),
   ],
   output: {
@@ -38,10 +42,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0'],
-        },
+        loaders: [
+          `babel-loader?${JSON.stringify(babelSettings)}`,
+          'eslint-loader',
+        ],
+        // query: ,
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
       },
