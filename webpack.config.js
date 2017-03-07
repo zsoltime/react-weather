@@ -46,7 +46,6 @@ module.exports = {
           `babel-loader?${JSON.stringify(babelSettings)}`,
           'eslint-loader',
         ],
-        // query: ,
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
       },
