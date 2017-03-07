@@ -1,6 +1,9 @@
 const React = require('react');
 
 const WeatherForm = React.createClass({
+  propTypes: {
+    onSearch: React.PropTypes.func.isRequired,
+  },
   onFormSubmit(e) {
     e.preventDefault();
     const location = this.refs.location.value;

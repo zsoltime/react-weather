@@ -5,6 +5,11 @@ const openWeatherMap = require('openWeatherMap');
 const ErrorModal = require('ErrorModal');
 
 const Weather = React.createClass({
+  propTypes: {
+    location: React.PropTypes.objectOf(
+      React.PropTypes.string,
+    ).isRequired,
+  },
   getInitialState() {
     return {
       isLoading: false,
@@ -60,6 +65,7 @@ const Weather = React.createClass({
       } else if (temp && location) {
         return <WeatherMessage location={location} temp={temp} />;
       }
+      return false;
     };
     const renderError = () => {
       if (typeof errorMessage === 'string') {
@@ -67,6 +73,7 @@ const Weather = React.createClass({
           <ErrorModal message={errorMessage} />
         );
       }
+      return false;
     };
     return (
       <div>

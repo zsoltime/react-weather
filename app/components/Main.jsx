@@ -12,4 +12,8 @@ const Main = props => (
   </div>
 );
 
+Main.propTypes = {
+  children: React.PropTypes.node.isRequired,
+};
+
 module.exports = Main;
