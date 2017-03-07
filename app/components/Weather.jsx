@@ -6,9 +6,8 @@ const ErrorModal = require('ErrorModal');
 
 const Weather = React.createClass({
   propTypes: {
-    location: React.PropTypes.objectOf(
-      React.PropTypes.string,
-    ).isRequired,
+    // eslint-disable-next-line
+    location: React.PropTypes.object.isRequired,
   },
   getInitialState() {
     return {

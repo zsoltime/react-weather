@@ -6,7 +6,7 @@ const WeatherMessage = ({ location, temp }) => (
 
 WeatherMessage.propTypes = {
   location: React.PropTypes.string.isRequired,
-  temp: React.PropTypes.string.isRequired,
+  temp: React.PropTypes.number.isRequired,
 };
 
 module.exports = WeatherMessage;
