@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 const { Route, Router, IndexRoute, hashHistory } = require('react-router');
@@ -6,8 +8,9 @@ const Weather = require('Weather');
 const About = require('About');
 const Examples = require('Examples');
 
-require('style!css!foundation-sites/dist/css/foundation.min.css')
-require('style!css!sass!applicationStyles')
+require('style!css!foundation-sites/dist/css/foundation.min.css');
+require('style!css!sass!applicationStyles');
+
 $(document).foundation();
 
 ReactDOM.render(
@@ -18,5 +21,5 @@ ReactDOM.render(
       <IndexRoute component={Weather} />
     </Route>
   </Router>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

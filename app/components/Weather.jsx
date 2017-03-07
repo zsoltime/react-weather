@@ -5,13 +5,27 @@ const openWeatherMap = require('openWeatherMap');
 const ErrorModal = require('ErrorModal');
 
 const Weather = React.createClass({
-  getInitialState: function() {
+  getInitialState() {
     return {
       isLoading: false,
       errorMessage: undefined,
     };
   },
-  handleSearch: function(location) {
+  componentDidMount() {
+    const location = this.props.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+  componentWillReceiveProps(newProps) {
+    const location = newProps.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+  handleSearch(location) {
     const that = this;
     this.setState({
       isLoading: true,
@@ -20,34 +34,20 @@ const Weather = React.createClass({
       temp: undefined,
     });
     openWeatherMap.getTemp(location)
-      .then(temp => {
+      .then((temp) => {
         that.setState({
           isLoading: false,
           location,
           temp,
         });
-      }, e => {
+      }, (e) => {
         that.setState({
           isLoading: false,
           errorMessage: e.message,
         });
       });
   },
-  componentDidMount: function () {
-    const location = this.props.location.query.location;
-    if (location && location.length > 0) {
-      this.handleSearch(location);
-      window.location.hash = '#/';
-    }
-  },
-  componentWillReceiveProps: function(newProps) {
-    const location = newProps.location.query.location;
-    if (location && location.length > 0) {
-      this.handleSearch(location);
-      window.location.hash = '#/';
-    }
-  },
-  render: function () {
+  render() {
     const { location, temp, isLoading, errorMessage } = this.state;
 
     const renderMessage = () => {
